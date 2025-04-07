@@ -11,11 +11,12 @@
     <!-- Notre CSS personnalisé -->
     <link rel="stylesheet" href="./css/style.css">
     <script src="./script/scrypt.js" defer></script>
+    <script src="./script/photo_gallery.js" defer></script>
 </head>
 <body>
     <!-- Header/Navigation -->
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
             <div class="container">
                 <!-- Logo -->
                 <a class="navbar-brand" href="#">
@@ -522,12 +523,175 @@
         </section>
     
         <!-- Section Galerie -->
-        <section id="galerie" class="py-5 bg-light">
+        <section id="galerie" class="py-5">
             <div class="container">
-                <h2 class="text-center mb-5">Galerie Photos</h2>
-                <!-- Contenu à ajouter -->
+                <div class="text-center mb-5">
+                    <h2 class="display-5 fw-bold mb-3">Galerie Photos</h2>
+                    <p class="lead text-muted">Explorez notre univers à travers ces instantanés</p>
+                    
+                    <!-- Filtres -->
+                    <div class="d-flex flex-wrap justify-content-center gap-2 mb-4">
+                        <button class="btn btn-sm btn-outline-primary active filter-btn" data-filter="all">Tout voir</button>
+                        <button class="btn btn-sm btn-outline-primary filter-btn" data-filter="chambres">Chambres</button>
+                        <button class="btn btn-sm btn-outline-primary filter-btn" data-filter="restaurant">Restaurant</button>
+                        <button class="btn btn-sm btn-outline-primary filter-btn" data-filter="spa">Spa</button>
+                        <button class="btn btn-sm btn-outline-primary filter-btn" data-filter="exterieur">Extérieur</button>
+                    </div>
+                </div>
+        
+                <!-- Grille Masonry (défaut) -->
+                <div class="row g-3 mb-5" id="masonryGrid">
+                    <div class="col-md-4 col-6 gallery-item chambres">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="./images/hebergements/4_small/reisetopia-B8WIgxA_PFU-unsplash.jpg">
+                            <img src="./images/hebergements/4_small/reisetopia-B8WIgxA_PFU-unsplash.jpg" 
+                                 class="img-fluid rounded-3 w-100 h-100 object-fit-cover" 
+                                 alt="Suite Deluxe">
+                            <div class="gallery-overlay rounded-3">
+                                <div class="overlay-content">
+                                    <i class="fas fa-search-plus fa-2x"></i>
+                                    <p class="mt-2 mb-0">Suite Deluxe</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="col-md-8 col-6 gallery-item restaurant">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="https://images.unsplash.com/photo-1414235077428-338989a2e8c0">
+                            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0" 
+                                 class="img-fluid rounded-3 w-100 h-100 object-fit-cover" 
+                                 alt="Restaurant Gastronomique">
+                            <div class="gallery-overlay rounded-3">
+                                <div class="overlay-content">
+                                    <i class="fas fa-search-plus fa-2x"></i>
+                                    <p class="mt-2 mb-0">Restaurant</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="col-md-5 col-6 gallery-item spa">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="https://images.unsplash.com/photo-1544161515-4ab6ce6db874">
+                            <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874" 
+                                 class="img-fluid rounded-3 w-100 h-100 object-fit-cover" 
+                                 alt="Centre Spa">
+                            <div class="gallery-overlay rounded-3">
+                                <div class="overlay-content">
+                                    <i class="fas fa-search-plus fa-2x"></i>
+                                    <p class="mt-2 mb-0">Espace Spa</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="col-md-3 col-6 gallery-item exterieur">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="https://images.unsplash.com/photo-1566073771259-6a8506099945">
+                            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945" 
+                                 class="img-fluid rounded-3 w-100 h-100 object-fit-cover" 
+                                 alt="Piscine Extérieure">
+                            <div class="gallery-overlay rounded-3">
+                                <div class="overlay-content">
+                                    <i class="fas fa-search-plus fa-2x"></i>
+                                    <p class="mt-2 mb-0">Piscine</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="col-md-4 col-6 gallery-item chambres">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b">
+                            <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b" 
+                                 class="img-fluid rounded-3 w-100 h-100 object-fit-cover" 
+                                 alt="Chambre Standard">
+                            <div class="gallery-overlay rounded-3">
+                                <div class="overlay-content">
+                                    <i class="fas fa-search-plus fa-2x"></i>
+                                    <p class="mt-2 mb-0">Chambre</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+        
+                <!-- Grille Carrée (optionnelle) -->
+                <div class="row g-3 mb-5 d-none" id="squareGrid">
+                    <div class="col-md-3 col-6 gallery-item chambres">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="https://images.unsplash.com/photo-1631049307264-da0ec9d70304">
+                            <div class="square-container">
+                                <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304" 
+                                     class="img-fluid rounded-3 w-100 h-100 object-fit-cover" 
+                                     alt="Chambre Classique">
+                                <div class="gallery-overlay rounded-3">
+                                    <div class="overlay-content">
+                                        <i class="fas fa-search-plus fa-2x"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <!-- Ajoutez d'autres éléments carrés de la même manière -->
+                </div>
+        
+                <!-- Grille Pinterest Style -->
+                <div class="row g-3" id="pinterestGrid">
+                    <div class="col-md-4 col-6 gallery-item chambres">
+                        <div class="card border-0">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="./images/activites/1_xlarge/kevin-hikari-rV_Qd1l-VXg-unsplash.jpg">
+                                <img src="./images/activites/1_xlarge/kevin-hikari-rV_Qd1l-VXg-unsplash.jpg" 
+                                     class="card-img-top rounded-3" 
+                                     alt="Détail Chambre">
+                            </a>
+                            <div class="card-body px-0">
+                                <p class="text-muted mb-0"><small>Détail tête de lit</small></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4 col-6 gallery-item restaurant">
+                        <div class="card border-0">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#imageModal" data-img="https://images.unsplash.com/photo-1555396273-367ea4eb4db5">
+                                <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5" 
+                                     class="card-img-top rounded-3" 
+                                     alt="Plat Signature">
+                            </a>
+                            <div class="card-body px-0">
+                                <p class="text-muted mb-0"><small>Notre plat signature</small></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Ajoutez d'autres éléments Pinterest style -->
+                </div>
+        
+                <!-- Boutons de changement de vue -->
+                <div class="text-center mt-4">
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-outline-primary active grid-btn" data-grid="masonry">
+                            <i class="fas fa-th-large me-2"></i>Masonry
+                        </button>
+                        <button type="button" class="btn btn-outline-primary grid-btn" data-grid="square">
+                            <i class="fas fa-th me-2"></i>Carré
+                        </button>
+                        <button type="button" class="btn btn-outline-primary grid-btn" data-grid="pinterest">
+                            <i class="fab fa-pinterest me-2"></i>Pinterest
+                        </button>
+                    </div>
+                </div>
             </div>
         </section>
+        
+        <!-- Modal pour afficher les images en grand -->
+        <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content bg-transparent border-0">
+                    <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <img id="modalImage" src="" class="img-fluid rounded-3" alt="">
+                    <div class="text-center text-white mt-2">
+                        <p id="imageCaption" class="mb-0"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     
         <!-- Section Contact -->
         <section id="contact" class="py-5">
