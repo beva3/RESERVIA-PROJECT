@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./css/style.css">
     <script src="./script/scrypt.js" defer></script>
     <script src="./script/photo_gallery.js" defer></script>
+    <!-- <script src="./script/map.js" defer></script> -->
 </head>
 <body>
     <!-- Header/Navigation -->
@@ -693,14 +694,6 @@
             </div>
         </div>
     
-        <!-- Section Contact -->
-        <section id="contact" class="py-5">
-            <div class="container">
-                <h2 class="text-center mb-5">Contactez-nous</h2>
-                <!-- Contenu à ajouter -->
-            </div>
-        </section>
-    
         <!-- Section À propos -->
         <section id="apropos" class="py-5 bg-light">
             <div class="container">
@@ -877,6 +870,177 @@
                 </div>
             </div>
         </section>
+
+        <!-- contact -->
+        <section id="contact" class="py-5">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="display-5 fw-bold mb-3">Contactez-nous</h2>
+                    <p class="lead text-muted">Nous sommes à votre disposition pour toute question ou réservation</p>
+                </div>
+        
+                <div class="row g-4">
+                    <!-- Colonne de gauche - Formulaire -->
+                    <div class="col-lg-6">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body p-4">
+                                <h3 class="mb-4">Envoyez-nous un message</h3>
+                                
+                                <form id="contactForm">
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <label for="name" class="form-label">Nom complet *</label>
+                                            <input type="text" class="form-control" id="name" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="email" class="form-label">Email *</label>
+                                            <input type="email" class="form-control" id="email" required>
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="subject" class="form-label">Sujet</label>
+                                            <select class="form-select" id="subject">
+                                                <option value="reservation">Réservation</option>
+                                                <option value="information">Demande d'information</option>
+                                                <option value="group">Demande de groupe</option>
+                                                <option value="other">Autre</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="message" class="form-label">Message *</label>
+                                            <textarea class="form-control" id="message" rows="5" required></textarea>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="newsletter">
+                                                <label class="form-check-label" for="newsletter">
+                                                    Je souhaite recevoir les offres spéciales par email
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <button type="submit" class="btn btn-primary px-4 py-2">
+                                                <i class="fas fa-paper-plane me-2"></i> Envoyer
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Colonne de droite - Coordonnées -->
+                    <div class="col-lg-6">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body p-4">
+                                <h3 class="mb-4">Nos coordonnées</h3>
+                                
+                                <div class="contact-info mb-4">
+                                    <div class="d-flex mb-3">
+                                        <div class="icon-contact bg-primary-light rounded-circle me-3">
+                                            <i class="fas fa-map-marker-alt text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="mb-1">Adresse</h5>
+                                            <p class="mb-0">123 Avenue des Hôteliers<br>75008 Paris, France</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="d-flex mb-3">
+                                        <div class="icon-contact bg-primary-light rounded-circle me-3">
+                                            <i class="fas fa-phone-alt text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="mb-1">Téléphone</h5>
+                                            <p class="mb-0">
+                                                Réservations: <a href="tel:+33123456789">+33 1 23 45 67 89</a><br>
+                                                Standard: <a href="tel:+33198765432">+33 1 98 76 54 32</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="d-flex mb-3">
+                                        <div class="icon-contact bg-primary-light rounded-circle me-3">
+                                            <i class="fas fa-envelope text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="mb-1">Email</h5>
+                                            <p class="mb-0">
+                                                <a href="mailto:reservations@reservia.com">reservations@reservia.com</a><br>
+                                                <a href="mailto:contact@reservia.com">contact@reservia.com</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="d-flex">
+                                        <div class="icon-contact bg-primary-light rounded-circle me-3">
+                                            <i class="fas fa-clock text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="mb-1">Horaires</h5>
+                                            <p class="mb-0">
+                                                <strong>Réception:</strong> 24h/24<br>
+                                                <strong>Service réservations:</strong> 8h-22h<br>
+                                                <strong>Restaurant:</strong> 7h-23h
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <hr class="my-4">
+                                
+                                <h5 class="mb-3">Réseaux sociaux</h5>
+                                <div class="social-links">
+                                    <a href="#" class="btn btn-outline-primary btn-sm rounded-circle me-2">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-outline-primary btn-sm rounded-circle me-2">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-outline-primary btn-sm rounded-circle me-2">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-outline-primary btn-sm rounded-circle">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Carte -->
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body p-0">
+                                <div id="map" style="height: 400px; width: 100%;">
+                                    <p class="lead text-left m-4">google mamap app, new project</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Modal de confirmation -->
+        <div class="modal fade" id="contactModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header border-0">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-center py-4">
+                        <i class="fas fa-check-circle text-success fa-5x mb-4"></i>
+                        <h3 class="mb-3">Message envoyé !</h3>
+                        <p>Nous avons bien reçu votre demande et vous répondrons dans les plus brefs délais.</p>
+                    </div>
+                    <div class="modal-footer border-0 justify-content-center">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Fermer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <!-- Footer sera ajouté plus tard -->
