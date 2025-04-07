@@ -16,7 +16,7 @@
 <body>
     <!-- Header/Navigation -->
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
             <div class="container">
                 <!-- Logo -->
                 <a class="navbar-brand" href="#">
@@ -70,7 +70,7 @@
     </header>
 
     <!-- Contenu principal sera ajouté plus tard -->
-    <main>
+    <main class="mt-5 pt-5">
          <!-- Modal Connexion -->
         <section>
             <div class="modal fade" id="connexionModal" tabindex="-1" aria-labelledby="connexionModalLabel" aria-hidden="true">
@@ -704,8 +704,177 @@
         <!-- Section À propos -->
         <section id="apropos" class="py-5 bg-light">
             <div class="container">
-                <h2 class="text-center mb-5">À propos de ReserVia</h2>
-                <!-- Contenu à ajouter -->
+                <!-- Titre section -->
+                <div class="text-center mb-5">
+                    <h2 class="display-5 fw-bold mb-3">À propos de ReserVia</h2>
+                    <div class="divider mx-auto"></div>
+                </div>
+        
+                <!-- Notre Histoire -->
+                <div class="row align-items-center mb-5">
+                    <div class="col-lg-6">
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945" 
+                             class="img-fluid rounded-3 shadow" 
+                             alt="Bâtiment historique de l'hôtel">
+                    </div>
+                    <div class="col-lg-6 mt-4 mt-lg-0">
+                        <h3 class="fw-bold mb-4">Notre Histoire</h3>
+                        <p class="lead">Fondé en 1985, ReserVia est bien plus qu'un simple hôtel.</p>
+                        <p>Ce qui a commencé comme une petite maison d'hôtes familiale est devenu au fil des années une référence en matière d'hospitalité de luxe. Notre bâtiment historique, soigneusement rénové, allie le charme d'antan au confort moderne.</p>
+                        <p>En 2020, nous avons entrepris une expansion majeure pour ajouter notre aile contemporaine, tout en préservant l'âme authentique qui fait notre réputation.</p>
+                        <div class="timeline mt-4">
+                            <div class="timeline-item">
+                                <div class="timeline-year">1985</div>
+                                <div class="timeline-content">
+                                    <h5>Fondation</h5>
+                                    <p>Ouverture de notre première maison d'hôtes avec 5 chambres</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-year">2002</div>
+                                <div class="timeline-content">
+                                    <h5>Première rénovation</h5>
+                                    <p>Agrandissement à 25 chambres et création du restaurant</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-year">2020</div>
+                                <div class="timeline-content">
+                                    <h5>Nouvelle aile</h5>
+                                    <p>Construction de l'aile contemporaine avec spa et suites</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Notre Équipe -->
+                <div class="row mb-5">
+                    <div class="col-12">
+                        <h3 class="fw-bold text-center mb-5">Notre Équipe</h3>
+                        <div class="row g-4">
+                            <!-- Membre 1 -->
+                            <div class="col-md-4">
+                                <div class="card team-card border-0 text-center h-100">
+                                    <div class="team-img-container mx-auto">
+                                        <img src="https://randomuser.me/api/portraits/women/65.jpg" 
+                                             class="card-img-top rounded-circle" 
+                                             alt="Directrice">
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Sophie Martin</h5>
+                                        <p class="text-primary mb-2">Directrice Générale</p>
+                                        <p class="card-text">25 ans d'expérience dans l'hôtellerie de luxe à travers le monde.</p>
+                                    </div>
+                                    <div class="card-footer bg-transparent border-0">
+                                        <a href="#" class="btn btn-sm btn-outline-primary">Contacter</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Membre 2 -->
+                            <div class="col-md-4">
+                                <div class="card team-card border-0 text-center h-100">
+                                    <div class="team-img-container mx-auto">
+                                        <img src="https://randomuser.me/api/portraits/men/42.jpg" 
+                                             class="card-img-top rounded-circle" 
+                                             alt="Chef Cuisinier">
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Jean Dubois</h5>
+                                        <p class="text-primary mb-2">Chef Étoilé</p>
+                                        <p class="card-text">Notre chef étoilé réinvente la gastronomie française depuis 10 ans.</p>
+                                    </div>
+                                    <div class="card-footer bg-transparent border-0">
+                                        <a href="#" class="btn btn-sm btn-outline-primary">Contacter</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Membre 3 -->
+                            <div class="col-md-4">
+                                <div class="card team-card border-0 text-center h-100">
+                                    <div class="team-img-container mx-auto">
+                                        <img src="https://randomuser.me/api/portraits/women/32.jpg" 
+                                             class="card-img-top rounded-circle" 
+                                             alt="Responsable Spa">
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Amélie Petit</h5>
+                                        <p class="text-primary mb-2">Responsable Spa</p>
+                                        <p class="card-text">Spécialiste en bien-être avec une approche holistique unique.</p>
+                                    </div>
+                                    <div class="card-footer bg-transparent border-0">
+                                        <a href="#" class="btn btn-sm btn-outline-primary">Contacter</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Nos Valeurs -->
+                <div class="row">
+                    <div class="col-12">
+                        <h3 class="fw-bold text-center mb-5">Nos Valeurs</h3>
+                        <div class="row g-4">
+                            <!-- Valeur 1 -->
+                            <div class="col-md-4">
+                                <div class="card value-card border-0 text-center h-100 p-4">
+                                    <div class="icon-value mx-auto mb-3">
+                                        <i class="fas fa-heart fa-2x text-primary"></i>
+                                    </div>
+                                    <h4>Authenticité</h4>
+                                    <p>Nous cultivons des relations vraies avec nos clients et notre équipe, dans le respect de nos traditions.</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Valeur 2 -->
+                            <div class="col-md-4">
+                                <div class="card value-card border-0 text-center h-100 p-4">
+                                    <div class="icon-value mx-auto mb-3">
+                                        <i class="fas fa-leaf fa-2x text-primary"></i>
+                                    </div>
+                                    <h4>Développement Durable</h4>
+                                    <p>Engagés dans une démarche éco-responsable, de la gestion des déchets au choix des produits locaux.</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Valeur 3 -->
+                            <div class="col-md-4">
+                                <div class="card value-card border-0 text-center h-100 p-4">
+                                    <div class="icon-value mx-auto mb-3">
+                                        <i class="fas fa-star fa-2x text-primary"></i>
+                                    </div>
+                                    <h4>Excellence</h4>
+                                    <p>Chaque détail compte pour créer une expérience mémorable, sans compromis sur la qualité.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Chiffres clés -->
+                <div class="stats-section py-5 my-5 bg-white rounded-3 shadow-sm">
+                    <div class="row text-center">
+                        <div class="col-md-3">
+                            <h3 class="display-4 fw-bold text-primary">37</h3>
+                            <p>Années d'expérience</p>
+                        </div>
+                        <div class="col-md-3">
+                            <h3 class="display-4 fw-bold text-primary">150+</h3>
+                            <p>Chambres & Suites</p>
+                        </div>
+                        <div class="col-md-3">
+                            <h3 class="display-4 fw-bold text-primary">98%</h3>
+                            <p>Clients satisfaits</p>
+                        </div>
+                        <div class="col-md-3">
+                            <h3 class="display-4 fw-bold text-primary">50</h3>
+                            <p>Collaborateurs</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
