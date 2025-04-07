@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReserVia - Réservation d'hôtels en ligne</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Notre CSS personnalisé -->
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./script/scrypt.js" defer></script>
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top">
+            <div class="container">
+                <!-- Logo -->
+                <a class="navbar-brand" href="#">
+                    <img src="./images/logo/Reservia.png" alt="ReserVia Logo" height="40">
+                </a>
+                
+                <!-- Bouton menu mobile -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <!-- Navigation -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#accueil">Accueil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#reservations">Réservations</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Chambres/Services
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                                <li><a class="dropdown-item" href="#chambres-services">Chambres Standard</a></li>
+                                <li><a class="dropdown-item" href="#chambres-services">Suites</a></li>
+                                <li><a class="dropdown-item" href="#chambres-services">Services</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#galerie">Galerie/Photos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#apropos">À propos</a>
+                        </li>
+                    </ul>
+                    
+                    <!-- Boutons connexion/inscription -->
+                    <div class="d-flex ms-lg-3">
+                        <button class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#connexionModal">Connexion</button>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#inscriptionModal">Inscription</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Contenu principal sera ajouté plus tard -->
+    <main>
+         <!-- Modal Connexion -->
+        <section>
+            <div class="modal fade" id="connexionModal" tabindex="-1" aria-labelledby="connexionModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="connexionModalLabel">Connexion</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="loginEmail" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="loginEmail" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="loginPassword" class="form-label">Mot de passe</label>
+                                    <input type="password" class="form-control" id="loginPassword" required>
+                                </div>
+                                <div class="mb-3 form-check">
+                                    <input type="checkbox" class="form-check-input" id="rememberMe">
+                                    <label class="form-check-label" for="rememberMe">Se souvenir de moi</label>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Se connecter</button>
+                            </form>
+                            <div class="text-center mt-3">
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#inscriptionModal" data-bs-dismiss="modal">Créer un compte</a>
+                                <span class="mx-2">|</span>
+                                <a href="#">Mot de passe oublié ?</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Modal Inscription -->
+            <div class="modal fade" id="inscriptionModal" tabindex="-1" aria-labelledby="inscriptionModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="inscriptionModalLabel">Inscription</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="firstName" class="form-label">Prénom</label>
+                                        <input type="text" class="form-control" id="firstName" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="lastName" class="form-label">Nom</label>
+                                        <input type="text" class="form-control" id="lastName" required>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="signupEmail" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="signupEmail" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="signupPassword" class="form-label">Mot de passe</label>
+                                    <input type="password" class="form-control" id="signupPassword" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="confirmPassword" class="form-label">Confirmer le mot de passe</label>
+                                    <input type="password" class="form-control" id="confirmPassword" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">S'inscrire</button>
+                            </form>
+                            <div class="text-center mt-3">
+                                <p>Déjà un compte ? <a href="#" data-bs-toggle="modal" data-bs-target="#connexionModal" data-bs-dismiss="modal">Se connecter</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section Accueil (déjà présente avec la Hero Section) -->
+        <section id="accueil" class="py-5">
+            <div class="container">
+                <!-- Présentation texte + image -->
+                <div class="row align-items-center mb-5">
+                    <div class="col-lg-6">
+                        <h1 class="display-4 fw-bold mb-4">Bienvenue chez <span class="text-primary">ReserVia</span></h1>
+                        <p class="lead mb-4">Découvrez un havre de paix au cœur de la ville, où luxe et confort se rencontrent.</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Chambres haut de gamme avec vue exceptionnelle</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Service personnalisé 24h/24</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Spa et centre de remise en forme</li>
+                            <li><i class="fas fa-check-circle text-primary me-2"></i> Restaurant gastronomique étoilé</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-6">
+                        <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa" 
+                             class="img-fluid rounded-3 shadow" 
+                             alt="Hall de l'hôtel">
+                    </div>
+                </div>
+                
+                <!-- Votre formulaire de recherche existant ici -->
+            </div>
+        </section>>
+
+        <!-- promotions -->
+        <section class="promotions py-5 bg-light">
+            <div class="container">
+                <h2 class="text-center mb-5"><i class="fas fa-percentage text-danger me-2"></i> Nos Offres Spéciales</h2>
+                
+                <div class="row g-4">
+                    <!-- Promotion 1 -->
+                    <div class="col-md-4">
+                        <div class="card promotion-card h-100 border-0 shadow-sm">
+                            <div class="badge bg-danger position-absolute top-0 end-0 m-2">-30%</div>
+                            <img src="./images/hebergements/3_medium/aw-creative-VGs8z60yT2c-unsplash.jpg" class="card-img-top" alt="Suite">
+                            <div class="card-body">
+                                <h5 class="card-title">Séjour Romantique</h5>
+                                <p class="card-text">2 nuits en suite avec petit-déjeuner au lit et dîner aux chandelles.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="text-decoration-line-through text-muted">€450</span>
+                                    <span class="fw-bold fs-4 text-primary">€315</span>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-transparent border-0">
+                                <button class="btn btn-outline-primary w-100">Voir l'offre</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Promotion 2 -->
+                    <div class="col-md-4">
+                        <div class="card promotion-card h-100 border-0 shadow-sm">
+                            <div class="badge bg-danger position-absolute top-0 end-0 m-2">-25%</div>
+                            <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461" class="card-img-top" alt="Spa">
+                            <div class="card-body">
+                                <h5 class="card-title">Week-end Détente</h5>
+                                <p class="card-text">1 nuit + accès illimité au spa et massage offert.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="text-decoration-line-through text-muted">€280</span>
+                                    <span class="fw-bold fs-4 text-primary">€210</span>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-transparent border-0">
+                                <button class="btn btn-outline-primary w-100">Voir l'offre</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Promotion 3 -->
+                    <div class="col-md-4">
+                        <div class="card promotion-card h-100 border-0 shadow-sm">
+                            <div class="badge bg-danger position-absolute top-0 end-0 m-2">-15%</div>
+                            <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0" class="card-img-top" alt="Famille">
+                            <div class="card-body">
+                                <h5 class="card-title">Offre Famille</h5>
+                                <p class="card-text">3 nuits pour 2 adultes + 2 enfants avec activités incluses.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="text-decoration-line-through text-muted">€650</span>
+                                    <span class="fw-bold fs-4 text-primary">€552</span>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-transparent border-0">
+                                <button class="btn btn-outline-primary w-100">Voir l'offre</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-4">
+                    <a href="#" class="btn btn-primary btn-lg">Voir toutes les promotions</a>
+                </div>
+            </div>
+        </section>
+        <!-- Section Réservations -->
+        <section id="reservations" class="py-5 bg-light">
+            <div class="container">
+                <h2 class="text-center mb-5">Gérer vos réservations</h2>
+                <!-- Contenu à ajouter -->
+            </div>
+        </section>
+    
+        <!-- Section Chambres/Services -->
+        <section id="chambres-services" class="py-5">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="display-5 fw-bold mb-3">Nos Chambres & Services</h2>
+                    <p class="lead text-muted">Découvrez notre gamme d'hébergements et services haut de gamme</p>
+                </div>
+        
+                <!-- Filtres -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <ul class="nav nav-pills justify-content-center" id="chambresTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="standard-tab" data-bs-toggle="pill" data-bs-target="#standard" type="button" role="tab">Chambres Standard</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="suites-tab" data-bs-toggle="pill" data-bs-target="#suites" type="button" role="tab">Suites</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="services-tab" data-bs-toggle="pill" data-bs-target="#services" type="button" role="tab">Services</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+        
+                <!-- Contenu des onglets -->
+                <div class="tab-content" id="chambresTabContent">
+                    <!-- Onglet Chambres Standard -->
+                    <div class="tab-pane fade show active" id="standard" role="tabpanel" aria-labelledby="standard-tab">
+                        <div class="row g-4">
+                            <!-- Chambre Standard 1 -->
+                            <div class="col-lg-4 col-md-6">
+                                <div class="card h-100 border-0 shadow-sm">
+                                    <div class="position-relative">
+                                        <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304" class="card-img-top" alt="Chambre Standard">
+                                        <div class="position-absolute bottom-0 start-0 bg-primary text-white px-3 py-1">À partir de €89/nuit</div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Chambre Standard</h5>
+                                        <p class="card-text">Chambre confortable de 20m² avec lit double ou deux lits simples, parfaite pour les courts séjours.</p>
+                                        
+                                        <h6 class="mt-4 mb-3">Équipements :</h6>
+                                        <ul class="list-unstyled">
+                                            <li><i class="fas fa-wifi text-primary me-2"></i> WiFi haut débit gratuit</li>
+                                            <li><i class="fas fa-tv text-primary me-2"></i> TV écran plat</li>
+                                            <li><i class="fas fa-snowflake text-primary me-2"></i> Climatisation</li>
+                                            <li><i class="fas fa-coffee text-primary me-2"></i> Machine à café</li>
+                                        </ul>
+                                    </div>
+                                    <div class="card-footer bg-transparent border-top-0">
+                                        <button class="btn btn-outline-primary w-100">Voir plus de détails</button>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <!-- Chambre Standard 2 -->
+                            <div class="col-lg-4 col-md-6">
+                                <div class="card h-100 border-0 shadow-sm">
+                                    <div class="position-relative">
+                                        <img src="./images/hebergements/3_medium/aw-creative-VGs8z60yT2c-unsplash.jpg" class="card-img-top" alt="Chambre Standard Vue Jardin">
+                                        <div class="position-absolute bottom-0 start-0 bg-primary text-white px-3 py-1">À partir de €109/nuit</div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Chambre Standard Vue Jardin</h5>
+                                        <p class="card-text">Chambre de 22m² avec vue sur notre jardin paisible, idéale pour se détendre après une journée de visite.</p>
+                                        
+                                        <h6 class="mt-4 mb-3">Équipements :</h6>
+                                        <ul class="list-unstyled">
+                                            <li><i class="fas fa-wifi text-primary me-2"></i> WiFi haut débit gratuit</li>
+                                            <li><i class="fas fa-tv text-primary me-2"></i> TV écran plat 32"</li>
+                                            <li><i class="fas fa-umbrella-beach text-primary me-2"></i> Terrasse privative</li>
+                                            <li><i class="fas fa-wine-glass-alt text-primary me-2"></i> Mini-bar</li>
+                                        </ul>
+                                    </div>
+                                    <div class="card-footer bg-transparent border-top-0">
+                                        <button class="btn btn-outline-primary w-100">Voir plus de détails</button>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <!-- Chambre Standard 3 -->
+                            <div class="col-lg-4 col-md-6">
+                                <div class="card h-100 border-0 shadow-sm">
+                                    <div class="position-relative">
+                                        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b" class="card-img-top" alt="Chambre Standard Exécutive">
+                                        <div class="position-absolute bottom-0 start-0 bg-primary text-white px-3 py-1">À partir de €129/nuit</div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Chambre Standard Exécutive</h5>
+                                        <p class="card-text">Espace de travail ergonomique dans une chambre de 25m², parfaite pour les voyageurs d'affaires.</p>
+                                        
+                                        <h6 class="mt-4 mb-3">Équipements :</h6>
+                                        <ul class="list-unstyled">
+                                            <li><i class="fas fa-wifi text-primary me-2"></i> WiFi haut débit professionnel</li>
+                                            <li><i class="fas fa-desktop text-primary me-2"></i> Bureau ergonomique</li>
+                                            <li><i class="fas fa-concierge-bell text-primary me-2"></i> Service en chambre 24h/24</li>
+                                            <li><i class="fas fa-tshirt text-primary me-2"></i> Service pressing express</li>
+                                        </ul>
+                                    </div>
+                                    <div class="card-footer bg-transparent border-top-0">
+                                        <button class="btn btn-outline-primary w-100">Voir plus de détails</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Onglet Suites -->
+                    <div class="tab-pane fade" id="suites" role="tabpanel" aria-labelledby="suites-tab">
+                        <div class="row g-4">
+                            <!-- Suite 1 -->
+                            <div class="col-lg-6">
+                                <div class="card h-100 border-0 shadow-sm">
+                                    <div class="position-relative">
+                                        <img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791" class="card-img-top" alt="Suite Junior">
+                                        <div class="position-absolute bottom-0 start-0 bg-primary text-white px-3 py-1">À partir de €199/nuit</div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Suite Junior</h5>
+                                        <p class="card-text">Espace de 35m² avec séparation salon/chambre, salle de bain en marbre et vue partielle sur la ville.</p>
+                                        
+                                        <h6 class="mt-4 mb-3">Équipements :</h6>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <ul class="list-unstyled">
+                                                    <li><i class="fas fa-couch text-primary me-2"></i> Salon privatif</li>
+                                                    <li><i class="fas fa-bath text-primary me-2"></i> Salle de bain en marbre</li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <ul class="list-unstyled">
+                                                    <li><i class="fas fa-utensils text-primary me-2"></i> Coin kitchenette</li>
+                                                    <li><i class="fas fa-robot text-primary me-2"></i> Système domotique</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer bg-transparent border-top-0">
+                                        <button class="btn btn-outline-primary w-100">Voir plus de détails</button>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <!-- Suite 2 -->
+                            <div class="col-lg-6">
+                                <div class="card h-100 border-0 shadow-sm">
+                                    <div class="position-relative">
+                                        <img src="https://images.unsplash.com/photo-1596178065887-1198b6148b2b" class="card-img-top" alt="Suite Présidentielle">
+                                        <div class="position-absolute bottom-0 start-0 bg-primary text-white px-3 py-1">À partir de €399/nuit</div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Suite Présidentielle</h5>
+                                        <p class="card-text">80m² de luxe avec vue panoramique, salon spacieux, salle à manger et salle de bain avec spa.</p>
+                                        
+                                        <h6 class="mt-4 mb-3">Équipements :</h6>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <ul class="list-unstyled">
+                                                    <li><i class="fas fa-hot-tub text-primary me-2"></i> Jacuzzi privatif</li>
+                                                    <li><i class="fas fa-wine-bottle text-primary me-2"></i> Cave à vin personnelle</li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <ul class="list-unstyled">
+                                                    <li><i class="fas fa-user-tie text-primary me-2"></i> Majordome dédié</li>
+                                                    <li><i class="fas fa-car text-primary me-2"></i> Service voiturier</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer bg-transparent border-top-0">
+                                        <button class="btn btn-outline-primary w-100">Voir plus de détails</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Onglet Services -->
+                    <div class="tab-pane fade" id="services" role="tabpanel" aria-labelledby="services-tab">
+                        <div class="row g-4">
+                            <!-- Service 1 -->
+                            <div class="col-md-4">
+                                <div class="card h-100 border-0 shadow-sm">
+                                    <div class="card-body text-center p-4">
+                                        <div class="icon-service bg-primary-light rounded-circle mx-auto mb-4">
+                                            <i class="fas fa-utensils fa-2x text-primary"></i>
+                                        </div>
+                                        <h5>Restaurant Gastronomique</h5>
+                                        <p>Notre chef étoilé propose une cuisine inventive à base de produits locaux et de saison.</p>
+                                        <p class="text-muted">Horaires : 7h-10h30 (petit-déjeuner) | 12h-14h | 19h-22h</p>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <!-- Service 2 -->
+                            <div class="col-md-4">
+                                <div class="card h-100 border-0 shadow-sm">
+                                    <div class="card-body text-center p-4">
+                                        <div class="icon-service bg-primary-light rounded-circle mx-auto mb-4">
+                                            <i class="fas fa-spa fa-2x text-primary"></i>
+                                        </div>
+                                        <h5>Spa & Bien-être</h5>
+                                        <p>Espace détente de 800m² avec piscine intérieure, hammam, sauna et cabines de massage.</p>
+                                        <p class="text-muted">Sur réservation - Ouvert de 9h à 21h</p>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <!-- Service 3 -->
+                            <div class="col-md-4">
+                                <div class="card h-100 border-0 shadow-sm">
+                                    <div class="card-body text-center p-4">
+                                        <div class="icon-service bg-primary-light rounded-circle mx-auto mb-4">
+                                            <i class="fas fa-concierge-bell fa-2x text-primary"></i>
+                                        </div>
+                                        <h5>Service Conciergerie</h5>
+                                        <p>Nous organisons visites, réservations, transports et toutes vos demandes spéciales.</p>
+                                        <p class="text-muted">Disponible 24h/24 au 01 23 45 67 89</p>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <!-- Service 4 -->
+                            <div class="col-md-4">
+                                <div class="card h-100 border-0 shadow-sm">
+                                    <div class="card-body text-center p-4">
+                                        <div class="icon-service bg-primary-light rounded-circle mx-auto mb-4">
+                                            <i class="fas fa-business-time fa-2x text-primary"></i>
+                                        </div>
+                                        <h5>Centre d'Affaires</h5>
+                                        <p>Salles de réunion équipées, service de secrétariat et traduction à disposition.</p>
+                                        <p class="text-muted">Accès libre pour les clients - 6h-22h</p>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <!-- Service 5 -->
+                            <div class="col-md-4">
+                                <div class="card h-100 border-0 shadow-sm">
+                                    <div class="card-body text-center p-4">
+                                        <div class="icon-service bg-primary-light rounded-circle mx-auto mb-4">
+                                            <i class="fas fa-swimming-pool fa-2x text-primary"></i>
+                                        </div>
+                                        <h5>Piscine Extérieure</h5>
+                                        <p>Piscine chauffée avec service de bar et transats, ouverte d'avril à octobre.</p>
+                                        <p class="text-muted">7h-20h (été) | Accès gratuit pour les clients</p>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <!-- Service 6 -->
+                            <div class="col-md-4">
+                                <div class="card h-100 border-0 shadow-sm">
+                                    <div class="card-body text-center p-4">
+                                        <div class="icon-service bg-primary-light rounded-circle mx-auto mb-4">
+                                            <i class="fas fa-child fa-2x text-primary"></i>
+                                        </div>
+                                        <h5>Service Enfants</h5>
+                                        <p>Garde d'enfants, menus spéciaux, activités et chambres familiales adaptées.</p>
+                                        <p class="text-muted">Sur réservation - De 9h à 18h</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Section Galerie -->
+        <section id="galerie" class="py-5 bg-light">
+            <div class="container">
+                <h2 class="text-center mb-5">Galerie Photos</h2>
+                <!-- Contenu à ajouter -->
+            </div>
+        </section>
+    
+        <!-- Section Contact -->
+        <section id="contact" class="py-5">
+            <div class="container">
+                <h2 class="text-center mb-5">Contactez-nous</h2>
+                <!-- Contenu à ajouter -->
+            </div>
+        </section>
+    
+        <!-- Section À propos -->
+        <section id="apropos" class="py-5 bg-light">
+            <div class="container">
+                <h2 class="text-center mb-5">À propos de ReserVia</h2>
+                <!-- Contenu à ajouter -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer sera ajouté plus tard -->
+    <footer>
+        <!-- Nous ajouterons le footer plus tard -->
+    </footer>
+
+    <!-- Bootstrap JS Bundle avec Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Notre JS personnalisé -->
+</body>
+</html>
