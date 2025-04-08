@@ -1,204 +1,336 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Réservation d'Hôtel</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body {
-      padding-top: 70px; /* Espacement pour la navbar fixe */
-    }
-  </style>
-</head>
-<body>
+﻿<!DOCTYPE HTML>
+<html lang=fr>
 
-  <!-- Navbar Fixe en Haut -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="#">Réservation Hôtel</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#recherche">Recherche</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#compte">Mon Compte</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#paiement">Paiement</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#avis">Avis</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#support">Support</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+    <head>
+        <!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> -->
+		<meta name="viewport" content="width=device-width"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+		<link rel="stylesheet" href="style.css" />
+		<title>Reservia - Trouvez votre hébergement pour des vacances de rêve</title>
+	</head>
 
-  <!-- Recherche & Réservation -->
-  <div class="container py-5" id="recherche">
-    <h2 class="text-center">Rechercher un hôtel</h2>
-    <form class="row g-3">
-      <div class="col-md-3">
-        <label for="date-debut" class="form-label">Date de début</label>
-        <input type="date" class="form-control" id="date-debut">
-      </div>
-      <div class="col-md-3">
-        <label for="date-fin" class="form-label">Date de fin</label>
-        <input type="date" class="form-control" id="date-fin">
-      </div>
-      <div class="col-md-3">
-        <label for="nb-personnes" class="form-label">Nombre de personnes</label>
-        <input type="number" class="form-control" id="nb-personnes" placeholder="2">
-      </div>
-      <div class="col-md-3">
-        <label for="localisation" class="form-label">Localisation</label>
-        <input type="text" class="form-control" id="localisation" placeholder="Paris">
-      </div>
-      <div class="col-md-3">
-        <label for="budget" class="form-label">Budget</label>
-        <input type="number" class="form-control" id="budget" placeholder="1000€">
-      </div>
-      <div class="col-12 text-center mt-3">
-        <button type="submit" class="btn btn-primary">Rechercher</button>
-      </div>
-    </form>
-  </div>
+	<body>
+        
+        <header class="mb-5">
+            <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-3 fixed-top">
+                <div class="container">
+                    <!-- Logo -->
+                    <a class="navbar-brand" href="index.html">
+                        <img src="../images/logo/Reservia.svg" alt="Logo Reservia" height="40">
+                    </a>
+                    
+                    <!-- Mobile toggle button -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    
+                    <!-- Navigation items -->
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto align-items-lg-center">
+                            <li class="nav-item me-3">
+                                <a class="nav-link fw-bold" href="#accomodations">Hébergements</a>
+                            </li>
+                            <li class="nav-item me-3">
+                                <a class="nav-link fw-bold" href="#activities">Activités</a>
+                            </li>
+                            <li class="nav-item">
+                                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Menu</button>
 
-  <!-- Affichage des Hôtels Disponibles -->
-  <div class="container py-5">
-    <h3 class="text-center">Hôtels Disponibles</h3>
-    <div class="row">
-      <div class="col-md-4">
-        <div class="card">
-          <img src="../images/hebergements/4_small/febrian-zakaria-M6S1WvfW68A-unsplash.jpg" class="card-img-top" alt="Hotel 1">
-          <div class="card-body">
-            <h5 class="card-title">Hotel de Luxe</h5>
-            <p class="card-text">À partir de 150€ / nuit</p>
-            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalReservation">Réserver</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal de Réservation -->
-  <div class="modal fade" id="modalReservation" tabindex="-1" aria-labelledby="modalReservationLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="modalReservationLabel">Réservation</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="mb-3">
-              <label for="type-chambre" class="form-label">Type de Chambre</label>
-              <select class="form-select" id="type-chambre">
-                <option value="single">Simple</option>
-                <option value="double">Double</option>
-                <option value="suite">Suite</option>
-              </select>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <section class="meny-with-offcanva">
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                <div class="offcanvas-header">
+                  <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body p-0 text-start">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fas fa-home me-2"></i> Accueil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fas fa-calendar-check me-2"></i> Réserver</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fas fa-suitcase me-2"></i> Mes Réservations</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fas fa-search me-2"></i> Trouver un Hébergement</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fas fa-percentage me-2"></i> Offres Spéciales</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fas fa-question-circle me-2"></i> Aide</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fas fa-user me-2"></i> Mon Profil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fas fa-credit-card me-2"></i> Moyens de Paiement</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fas fa-star me-2"></i> Mes Avis</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-danger" href="#"><i class="fas fa-sign-out-alt me-2"></i> Déconnexion</a>
+                        </li>
+                    </ul>
+                </div>
+              </div>
+        </section>
+        <div class="container-fluid">
+            <div class="main-bloc mt-5">
+                <!-- <section class="header-navbar">
+                    <img src="images/logo/Reservia.png" id="main-logo" alt="Logo">
+                    <div class="nav-menu">
+                        <a href="#accomodations" id="m-item-1">Hébergements</a>
+                        <a href="#activities" id="m-item-2">Activités</a>
+                        <a href="#" id="m-item-3">
+                            <button id="openSignupBtn" class="btn btn-primary">S'inscrire</button>
+                        </a>
+                    </div>
+                </section> -->
+                
+                <section class="header-intro">
+                    <div class="introduction">
+                        <h1>Trouvez votre hébergement pour des vacances de rêve</h1>
+                        <span id="h1-subtitle">En plein centre ville ou en pleine nature</span>
+                    </div>
+                    <form class="city-search" >
+                        <div id="s-icon"><img src="images/logo/position_logo.png" alt="Position"></div>
+                        <input class="inputForm" type="text" id="search-input" value="Marseille, France" placeholder="Rechercher une ville">
+                        
+                        <input class="inputForm" type="submit" id="search-submit" value="Rechercher">
+                        
+                    </form>
+                    <div class="filters-list">
+                        <span id="filters-label">Filtres</span>
+                        <div class="f-item">
+                            <div class="f-item-logo"><img src="images/logo/eco_logo.PNG" alt="logo 1"></div>
+                            <span class="f-item-label">Economique</span>
+                        </div>
+                        <div class="f-item">
+                            <div class="f-item-logo"><img src="images/logo/family_logo.PNG" alt="logo 2"></div>
+                            <span class="f-item-label">Familial</span>
+                        </div>
+                        <div class="f-item">
+                            <div class="f-item-logo"><img src="images/logo/romantic_logo.PNG" alt="logo 3"></div>
+                            <span class="f-item-label">Romantique</span>
+                        </div>
+                        <div class="f-item">
+                            <div class="f-item-logo"><img src="images/logo/animals_logo.PNG" alt="logo 4"></div>
+                            <span class="f-item-label">Animaux autorisés</span>
+                        </div>
+                    </div>
+                    <div class="about-city">
+                        <div class="info-logo"></div>
+                        <p>Plus de 500 logements sont disponibles dans cette ville</p>
+                    </div>
+                </section>
+                <section class="accomodations" id="accomodations">
+                    <h4 class="section-title">Hébergements à Marseille</h4>
+                    <a href="#" class="item-x">
+                        <div class="item-x-img">
+                            <img src="images/hebergements/4_small/marcus-loke-WQJvWU_HZFo-unsplash.jpg" alt="Image 1">
+                        </div>
+                        <span class="host-name">Auberge la Cannebière</span>
+                        <span class="host-price">Nuit à partir de 25€</span>
+                        <ol>
+                            <li class="blue-star"></li>
+                            <li class="blue-star"></li>
+                            <li class="blue-star"></li>
+                            <li class="grey-star"></li>
+                            <li class="grey-star"></li>
+                        </ol>
+                    </a>
+                    <a href="#" class="item-x">
+                        <div class="item-x-img">
+                            <img src="images/hebergements/4_small/fred-kleber-gTbaxaVLvsg-unsplash.jpg" alt="Image 2">
+                        </div>
+                        <span class="host-name">Hôtel du port</span>
+                        <span class="host-price">Nuit à partir de 52€</span>
+                        <ol>
+                            <li class="blue-star"></li>
+                            <li class="blue-star"></li>
+                            <li class="blue-star"></li>
+                            <li class="blue-star"></li>
+                            <li class="blue-star"></li>
+                        </ol>
+                    </a>
+                    <a href="#" class="item-x">
+                        <div class="item-x-img">
+                            <img src="images/hebergements/4_small/reisetopia-B8WIgxA_PFU-unsplash.jpg" alt="Image 3">
+                        </div>
+                        <span class="host-name">Hôtel Les mouettes</span>
+                        <span class="host-price">Nuit à partir de 76€</span>
+                        <ol>
+                            <li class="blue-star"></li>
+                            <li class="blue-star"></li>
+                            <li class="blue-star"></li>
+                            <li class="grey-star"></li>
+                            <li class="grey-star"></li>
+                        </ol>
+                    </a>
+                    <a href="#" class="item-x">
+                        <div class="item-x-img">
+                            <img src="images/hebergements/4_small/annie-spratt-Eg1qcIitAuA-unsplash.jpg" alt="Image 4">
+                        </div>
+                        <span class="host-name">Hôtel de la mer</span>
+                        <span class="host-price">Nuit à partir de 46€</span>
+                        <ol>
+                            <li class="blue-star"></li>
+                            <li class="blue-star"></li>
+                            <li class="grey-star"></li>
+                            <li class="grey-star"></li>
+                            <li class="grey-star"></li>
+                        </ol>
+                    </a>
+                    <a href="#" class="item-x">
+                        <div class="item-x-img">
+                            <img src="images/hebergements/4_small/nicate-lee-kT-ZyaiwBe0-unsplash.jpg" alt="Image 5">
+                        </div>
+                        <span class="host-name">Auberge le Panier</span>
+                        <span class="host-price">Nuit à partir de 23€</span>
+                        <ol>
+                            <li class="blue-star"></li>
+                            <li class="blue-star"></li>
+                            <li class="blue-star"></li>
+                            <li class="grey-star"></li>
+                            <li class="grey-star"></li>
+                        </ol>
+                    </a>
+                    <a href="#" class="item-x">
+                        <div class="item-x-img">
+                            <img src="images/hebergements/4_small/febrian-zakaria-M6S1WvfW68A-unsplash.jpg" alt="Image 6">
+                        </div>
+                        <span class="host-name">Hôtel chez Amina</span>
+                        <span class="host-price">Nuit à partir de 96€</span>
+                        <ol>
+                            <li class="blue-star"></li>
+                            <li class="blue-star"></li>
+                            <li class="grey-star"></li>
+                            <li class="grey-star"></li>
+                            <li class="grey-star"></li>
+                        </ol>
+                    </a>
+                    <span class="footer-span">Afficher plus</span>
+                </section>
+                <section class="most-popular">
+                    <h4 class="section-title">Les plus populaires</h4>
+                    <a href="#" class="item-x">
+                        <div class="item-x-img">
+                            <img src="images/hebergements/4_small/emile-guillemot-Bj_rcSC5XfE-unsplash.jpg" alt="Image 7">
+                        </div>
+                        <span class="host-name">Hôtel Le soleil du matin</span><br />
+                        <span class="host-price">Nuit à partir de 128€</span>
+                        <ol>
+                            <li class="blue-star"></li>
+                            <li class="blue-star"></li>
+                            <li class="blue-star"></li>
+                            <li class="blue-star"></li>
+                            <li class="grey-star"></li>
+                        </ol>
+                    </a>
+                    <a href="#" class="item-x">
+                        <div class="item-x-img">
+                            <img src="images/hebergements/4_small/aw-creative-VGs8z60yT2c-unsplash.jpg" alt="Image 8">
+                        </div>
+                        <span class="host-name">Au coeur de l'eau Chambres d'hôtes</span><br />
+                        <span class="host-price">Nuit à partir de 71€</span>
+                        <ol>
+                            <li class="blue-star"></li>
+                            <li class="blue-star"></li>
+                            <li class="blue-star"></li>
+                            <li class="grey-star"></li>
+                            <li class="grey-star"></li>
+                        </ol>
+                    </a>
+                    <a href="#" class="item-x">
+                        <div class="item-x-img">
+                            <img src="images/hebergements/4_small/febrian-zakaria-sjvU0THccQA-unsplash.jpg" alt="Image 9">
+                        </div>
+                        <span class="host-name">Hôtel Tout bleu et Blanc</span><br />
+                        <span class="host-price">Nuit à partir de 68€</span>
+                        <ol>
+                            <li class="blue-star"></li>
+                            <li class="blue-star"></li>
+                            <li class="blue-star"></li>
+                            <li class="blue-star"></li>
+                            <li class="blue-star"></li>
+                        </ol>
+                    </a>
+                </section>
+                <section class="activities" id="activities">
+                    <h4 class="section-title">Activités à Marseille</h4>
+                    <div class="activities-grid">
+                        <a href="#" class="item-x" id="activity_1">
+                            <div class="item-x-img">
+                                <img src="images/activites/4_small/reno-laithienne-QUgJhdY5Fyk-unsplash.jpg" alt="Image 10">
+                            </div>
+                            <div class="host-name">Vieux Port</div>
+                        </a>
+                        <a href="#" class="item-x miniature" id="activity_2">
+                            <div class="item-x-img">
+                                <img src="images/activites/4_small/paul-hermann-QFTrLdQIRhI-unsplash.jpg" alt="Image 11">
+                            </div>
+                            <div class="host-name">Fort de Pomègues</div>
+                        </a>
+                        <a href="#" class="item-x miniature" id="activity_3">
+                            <div class="item-x-img">
+                                <img src="images/activites/4_small/kevin-hikari-rV_Qd1l-VXg-unsplash.jpg" alt="Image 12">
+                            </div>
+                            <div class="host-name">Îles du Frioul</div>
+                        </a>
+                        <a href="#" class="item-x" id="activity_4">
+                            <div class="item-x-img">
+                                <img src="images/activites/4_small/kilyan-sockalingum-NR8-cBCN3aI-unsplash.jpg" alt="Image 13">
+                            </div>
+                            <div class="host-name">Parc National des Calanques</div>
+                        </a>
+                        <a href="#" class="item-x miniature" id="activity_5">
+                            <div class="item-x-img">
+                                <img src="images/activites/4_small/florian-wehde-xW9e8gdotxI-unsplash.jpg" alt="Image 14">
+                            </div>
+                            <div class="host-name">Notre-Dame-de-la-Garde</div>
+                        </a>
+                        <a href="#" class="item-x miniature" id="activity_6">
+                            <div class="item-x-img">
+                                <img src="images/activites/4_small/lena-paulin-wH2-EJoDcV0-unsplash.jpg" alt="Image 15">
+                            </div>
+                            <div class="host-name">Parc Longchamp</div>
+                        </a>
+                    </div>
+                </section>
             </div>
-            <div class="mb-3">
-              <label for="date-arrivee" class="form-label">Date d'arrivée</label>
-              <input type="date" class="form-control" id="date-arrivee">
-            </div>
-            <div class="mb-3">
-              <label for="date-depart" class="form-label">Date de départ</label>
-              <input type="date" class="form-control" id="date-depart">
-            </div>
-            <button type="submit" class="btn btn-primary">Confirmer la réservation</button>
-          </form>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Mon Compte Utilisateur -->
-  <div class="container py-5" id="compte">
-    <h2 class="text-center">Mon Compte</h2>
-    <form>
-      <div class="mb-3">
-        <label for="email" class="form-label">Email</label>
-        <input type="email" class="form-control" id="email" placeholder="Email">
-      </div>
-      <div class="mb-3">
-        <label for="motdepasse" class="form-label">Mot de passe</label>
-        <input type="password" class="form-control" id="motdepasse" placeholder="Mot de passe">
-      </div>
-      <button type="submit" class="btn btn-primary">Se connecter</button>
-    </form>
-  </div>
-
-  <!-- Page de Paiement -->
-  <div class="container py-5" id="paiement">
-    <h2 class="text-center">Paiement</h2>
-    <form>
-      <div class="mb-3">
-        <label for="total" class="form-label">Montant Total</label>
-        <input type="text" class="form-control" id="total" value="150€" disabled>
-      </div>
-      <div class="mb-3">
-        <button type="button" class="btn btn-primary">Payer avec Stripe</button>
-        <button type="button" class="btn btn-primary">Payer avec PayPal</button>
-      </div>
-    </form>
-  </div>
-
-  <!-- Avis & Notation -->
-  <div class="container py-5" id="avis">
-    <h3 class="text-center">Laissez un Avis</h3>
-    <form>
-      <div class="mb-3">
-        <label for="commentaire" class="form-label">Commentaire</label>
-        <textarea class="form-control" id="commentaire" rows="3"></textarea>
-      </div>
-      <div class="mb-3">
-        <label for="notation" class="form-label">Notation</label>
-        <select class="form-select" id="notation">
-          <option value="1">1 étoile</option>
-          <option value="2">2 étoiles</option>
-          <option value="3">3 étoiles</option>
-          <option value="4">4 étoiles</option>
-          <option value="5">5 étoiles</option>
-        </select>
-      </div>
-      <button type="submit" class="btn btn-primary">Envoyer l'avis</button>
-    </form>
-  </div>
-
-  <!-- Support -->
-  <div class="container py-5" id="support">
-    <h3 class="text-center">FAQ</h3>
-    <p><strong>Q:</strong> Comment puis-je annuler une réservation?</p>
-    <p><strong>R:</strong> Vous pouvez annuler votre réservation directement depuis votre profil utilisateur.</p>
-
-    <h3 class="text-center">Contactez-nous</h3>
-    <form>
-      <div class="mb-3">
-        <label for="nom" class="form-label">Nom</label>
-        <input type="text" class="form-control" id="nom" placeholder="Votre nom">
-      </div>
-      <div class="mb-3">
-        <label for="email" class="form-label">Email</label>
-        <input type="email" class="form-control" id="email" placeholder="Votre email">
-      </div>
-      <div class="mb-3">
-        <label for="message" class="form-label">Message</label>
-        <textarea class="form-control" id="message" rows="4" placeholder="Votre message"></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary">Envoyer</button>
-    </form>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+		<footer>
+			<div class="footer-item">
+				<span class="footer-domain">A propos</span>
+				<br />
+				<a href="#">Fonctionnement du site</a><br />
+				<a href="#">Conditions générales de vente</a><br />
+				<a href="#">Données et confidentialité</a>
+			</div>
+			<div class="footer-item">
+				<span class="footer-domain">Nos hébergements</span>
+				<br />
+				<a href="#">Charte qualité</a><br />
+				<a href="#">Soumettre votre hôtel</a>
+			</div>
+			<div class="footer-item">
+				<span class="footer-domain">Assistance</span>
+				<br />
+				<a href="#">Centre d'aide</a><br />
+				<a href="#">Nous contacter</a>
+			</div>
+		</footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+	</body>
 </html>
