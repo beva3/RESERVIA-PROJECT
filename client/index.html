@@ -4,7 +4,7 @@
     <head>
         <!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> -->
 		<meta name="viewport" content="width=device-width"/>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="../bootstrap-5.3.5-dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 		<link rel="stylesheet" href="style.css" />
 		<title>Reservia - Trouvez votre hébergement pour des vacances de rêve</title>
@@ -34,9 +34,17 @@
                             <li class="nav-item me-3">
                                 <a class="nav-link fw-bold" href="#activities">Activités</a>
                             </li>
+                            
+                            <li class="nav-item ">
+                                <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#accountMenu">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                </button>
+                            </li>
                             <li class="nav-item">
-                                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Menu</button>
-
+                                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                                    <!-- <i class="fas fa-home me-2"></i> -->
+                                    <i class="fa fa-archive"></i>
+                                </button>
                             </li>
                         </ul>
                     </div>
@@ -70,9 +78,6 @@
                             <a class="nav-link" href="#"><i class="fas fa-question-circle me-2"></i> Aide</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fas fa-user me-2"></i> Mon Profil</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="#"><i class="fas fa-credit-card me-2"></i> Moyens de Paiement</a>
                         </li>
                         <li class="nav-item">
@@ -84,6 +89,105 @@
                     </ul>
                 </div>
               </div>
+               <!-- Offcanvas Account Menu -->
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="accountMenu">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title">Account</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body p-0">
+                        <!-- User Information Section -->
+                        <div class="user-section">
+                            <div class="fw-bold">RAPHAEL RANDRIANANTO...</div>
+                            <div class="text-muted small">mizaraphaelpro@gmail.com</div>
+                            <a href="#" class="btn btn-outline-primary btn-sm mt-2">Create a channel</a>
+                        </div>
+                        
+                        <!-- Account Management Section -->
+                        <a href="#" class="menu-item">
+                            <i class="bi bi-google"></i>
+                            Google Account
+                        </a>
+                        <a href="#" class="menu-item">
+                            <i class="bi bi-arrow-left-right"></i>
+                            Switch account
+                        </a>
+                        <a href="#" class="menu-item">
+                            <i class="bi bi-box-arrow-right"></i>
+                            Sign out
+                        </a>
+                        
+                        <div class="menu-divider"></div>
+                        
+                        <!-- YouTube Features Section -->
+                        <a href="#" class="menu-item">
+                            <i class="bi bi-speedometer2"></i>
+                            YouTube Studio
+                        </a>
+                        <a href="#" class="menu-item">
+                            <i class="bi bi-credit-card"></i>
+                            Purchases and memberships
+                        </a>
+                        <a href="#" class="menu-item">
+                            <i class="bi bi-database"></i>
+                            Your data in YouTube
+                        </a>
+                        
+                        <div class="menu-divider"></div>
+                        
+                        <!-- Settings Section -->
+                        <div class="settings-item">
+                            <span><i class="bi bi-brightness-high"></i> Appearance</span>
+                            <select class="form-select form-select-sm" style="width: 120px;">
+                                <option>Device theme</option>
+                                <option>Dark theme</option>
+                                <option>Light theme</option>
+                            </select>
+                        </div>
+                        
+                        <div class="settings-item">
+                            <span><i class="bi bi-translate"></i> Language</span>
+                            <select class="form-select form-select-sm" style="width: 120px;">
+                                <option>English</option>
+                                <option>French</option>
+                                <option>Spanish</option>
+                            </select>
+                        </div>
+                        
+                        <div class="settings-item">
+                            <span><i class="bi bi-shield-lock"></i> Restricted Mode</span>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="restrictedMode">
+                                <label class="form-check-label" for="restrictedMode">Off</label>
+                            </div>
+                        </div>
+                        
+                        <div class="settings-item">
+                            <span><i class="bi bi-geo-alt"></i> Location</span>
+                            <span class="text-muted">India</span>
+                        </div>
+                        
+                        <div class="menu-divider"></div>
+                        
+                        <!-- Utility Section -->
+                        <a href="#" class="menu-item">
+                            <i class="bi bi-keyboard"></i>
+                            Keyboard shortcuts
+                        </a>
+                        <a href="#" class="menu-item">
+                            <i class="bi bi-gear"></i>
+                            Settings
+                        </a>
+                        <a href="#" class="menu-item">
+                            <i class="bi bi-question-circle"></i>
+                            Help
+                        </a>
+                        <a href="#" class="menu-item">
+                            <i class="bi bi-chat-left-text"></i>
+                            Send feedback
+                        </a>
+                    </div>
+                </div>
         </section>
         <div class="container-fluid">
             <div class="main-bloc mt-5">
@@ -331,6 +435,6 @@
 				<a href="#">Nous contacter</a>
 			</div>
 		</footer>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="../bootstrap-5.3.5-dist/js/bootstrap.bundle.min.js"></script>
 	</body>
 </html>

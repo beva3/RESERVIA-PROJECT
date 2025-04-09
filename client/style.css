@@ -711,3 +711,43 @@ section .item-x .grey-star {
 	width: 100%;
 	padding: 15px;
 }
+
+
+.account-menu {
+	width: 300px;
+}
+.user-section {
+	padding: 16px;
+	border-bottom: 1px solid #02d7f8;
+}
+.menu-item {
+	padding: 8px 16px;
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+	color: #212529;
+}
+.menu-item:hover {
+	background-color: #f1f50f;
+}
+.menu-item i {
+	margin-right: 16px;
+	width: 24px;
+	text-align: center;
+}
+.menu-divider {
+	border-top: 1px solid #ecf4f5;
+	margin: 8px 0;
+}
+.settings-item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 8px 16px;
+}
+.form-check-input {
+	margin-left: 0;
+}
+.offcanvas-header {
+	border-bottom: 1px solid #cbe6ed;
+}
