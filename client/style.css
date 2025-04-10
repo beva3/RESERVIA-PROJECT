@@ -734,7 +734,7 @@ section .item-x .grey-star {
 	margin-right: 16px;
 	width: 24px;
 	text-align: center;
-}
+	color: #000405;}
 .menu-divider {
 	border-top: 1px solid #ecf4f5;
 	margin: 8px 0;
